@@ -8,6 +8,7 @@ export class Header extends Component {
         loggedOut: false
     }
     
+    //sets state.loggedOut to true and removes the stored token from local storage
     handleLogOut = (e) => {
         this.setState({
             loggedOut: true
@@ -23,8 +24,10 @@ export class Header extends Component {
         const decoded = jwt.decode(token);
         const styles = this.props.headerStyles 
         let user = ''
+
+        //checks if there is a token in the locas storage, if so it takes the decoded email and shows it in the header so the user knows it is logged in.
         if(token){
-            user = decoded.email
+            user = 'logged in as: ' + decoded.email
         }else{user = null}
         return (
             <div style = {styles.headerContainer} name = 'headerContainer'>

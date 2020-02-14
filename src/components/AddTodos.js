@@ -10,9 +10,7 @@ export class AddTodos extends Component {
                <h1 style = {{color: '#F6956B', fontSize: '3rem'}}>Add Todos</h1>
                <form 
                style = {styles.formStyle}
-               onSubmit = {this.props.addTodo}>
-
-               
+               onSubmit = {this.props.addTodo}>               
                    <input 
                    name = 'content' 
                    placeholder = 'Enter Todo' 
@@ -32,6 +30,10 @@ export class AddTodos extends Component {
         )
     }
 }
+
+
+////////////////////////////////////////////////STYLES/////////////////////////////////////////////////////////////
+
 
 const styles = {
 

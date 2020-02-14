@@ -12,8 +12,8 @@ export class TodoContainer extends Component {
         content: ''
     }
 
-    componentDidMount(){
-        
+    // when the component is mounted there will be a sent a get request to the server to get the todos, along with a token to authorize the user to the server. if successfull the response data is set to the state
+    componentDidMount(){        
         const token=localStorage.getItem('token');
          axios.get('http://3.120.96.16:3002/todos',{ 
              headers: {Authorization: `Bearer ${token}`
@@ -28,6 +28,8 @@ export class TodoContainer extends Component {
          })
         }
 
+        //this function will be sent as a prop to another component.
+        //sends a delete request to the server with the id of the todo to remove, along with the token for authorization. then the state is filtered to remove the todo with the id. 
         handleDeleteTodo = (id) =>{
             const token=localStorage.getItem('token');
             axios.delete('http://3.120.96.16:3002/todos/'+ id, { 
@@ -38,6 +40,8 @@ export class TodoContainer extends Component {
                 })
         }
 
+        //this function will be sent as a prop to another component.
+        //takes the value from state.content and puts it in a object, then makes a post request to the server along with the authorization token. then takes the previous todos array and adds the new todo and when the state is updated the component updates.
         handleAddTodo = (e) => {
             e.preventDefault()    
            const  todo = {
@@ -57,7 +61,9 @@ export class TodoContainer extends Component {
                  alert('you fucked up')
              })
         }
-
+        
+        //this function will be sent as a prop to another component.
+        //copies then edits the state depending on the name the of the used input has been given
         handleOnChange = (e) => {
             this.setState({
                 ...this.state,
@@ -81,6 +87,9 @@ export class TodoContainer extends Component {
         )
     }
 }
+
+
+////////////////////////////////////////////////STYLES/////////////////////////////////////////////////////////////
 
 const styles = {
 

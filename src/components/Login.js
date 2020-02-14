@@ -12,6 +12,7 @@ export class Login extends Component {
             loggedin: false,
        }
 
+       //copies then edits the state depending on the name the of the used input has been given
        onChange = (e) => {
            this.setState({
                ...this.state,
@@ -19,6 +20,7 @@ export class Login extends Component {
            })
        }
 
+       //gets the email and password from the state then makes a post request to the server, if successfull gets a token in return. then saves that token to local storage and sets the state.loggedin to true
        onSubmit = (e) => {
         e.preventDefault()
        const email = this.state.email
@@ -77,6 +79,9 @@ export class Login extends Component {
     }
 }
 
+
+
+////////////////////////////////////////////////STYLES/////////////////////////////////////////////////////////////
 const styles = {
 
     containerStyle: {

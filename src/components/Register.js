@@ -13,6 +13,7 @@ export class Register extends Component {
         registered: false,
    }
 
+       //copies then edits the state depending on the name the of the used input has been given
    onChange = (e) => {
        this.setState({
            ...this.state,
@@ -20,6 +21,7 @@ export class Register extends Component {
        })   
    }
 
+   //gets the email and password from the state then makes a post request to the server, if successfull the user is alerted then redirected to the login Page
    onSubmit = (e) => {
         e.preventDefault()
        const email = this.state.email
@@ -76,6 +78,9 @@ export class Register extends Component {
         )
     }
 }
+
+
+////////////////////////////////////////////////STYLES/////////////////////////////////////////////////////////////
 
 const styles = {
 

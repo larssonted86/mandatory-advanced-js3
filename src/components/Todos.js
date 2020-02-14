@@ -3,13 +3,15 @@ import React, { Component } from 'react'
 export class Todos extends Component { 
     
     render() {
+
+       //takes the todos from props then for each todo puts this information in the todoDiv then adds the todoDiv to the todosCard div. 
        const addItems = this.props.todos.map( todoArray => {
-        return(<div key = {todoArray.id}>
+        return(<div key = {todoArray.id} name = 'todoDiv'>
             <p >{todoArray.content}</p>
             <button name = 'delete' onClick = {() => this.props.deleteTodo(todoArray.id)}> delete Todo</button>
-            </div>
-        ) 
+            </div>) 
         })
+
         return (
             <div name = 'todos' style = {styles.todos}>
                 <div name = 'todosCard' style = {styles.todosCard}> 
@@ -29,6 +31,9 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center'
     },
+
+
+////////////////////////////////////////////////STYLES/////////////////////////////////////////////////////////////
 
     todosCard: {
         display: 'flex',
