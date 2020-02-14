@@ -49,18 +49,20 @@ export class Login extends Component {
                         style = {formStyles.formStyle}
                         onSubmit = {this.onSubmit}>
                             <input 
-                            type = 'text'
+                            type = 'email'
                             name = 'email'
                             placeholder = 'Enter email'
                             style = {formStyles.inputStyle}
                             onChange = {this.onChange}
+                            required
                             />
                             <input 
-                            type = 'text'
+                            type = 'password'
                             name = 'password'
                             placeholder = 'Enter Password'
                             style = {formStyles.inputStyle}
                             onChange = {this.onChange}
+                            required
                             />
                             <button
                             type = 'submit'
