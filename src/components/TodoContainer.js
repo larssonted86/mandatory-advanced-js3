@@ -49,9 +49,9 @@ export class TodoContainer extends Component {
                 }})
              .then( result => {
                  this.setState(prevState => ({
-                    todos: [...prevState.todos, result.data.todo]
+                    todos: [...prevState.todos, result.data.todo],
+                    content: '',
                   }))
-                 
              })
              .catch(error => {
                  alert('you fucked up')
@@ -71,7 +71,11 @@ export class TodoContainer extends Component {
                 <Header headerStyles = {headerStyles} />
                 <div name = 'manageTodos' style = {styles.manageTodoStyles}>
                     <Todos  todos = {this.state.todos} deleteTodo = {this.handleDeleteTodo}/>
-                    <AddTodos  addTodo = {this.handleAddTodo} onChange = {this.handleOnChange} />
+                    <AddTodos  
+                    addTodo = {this.handleAddTodo} 
+                    onChange = {this.handleOnChange}
+                    value = {this.state.content} 
+                    />
                 </div>                
             </div>
         )

@@ -12,10 +12,11 @@ export class AddTodos extends Component {
                style = {styles.formStyle}
                onSubmit = {this.props.addTodo}>
 
-               >
+               
                    <input 
                    name = 'content' 
                    placeholder = 'Enter Todo' 
+                   value = {this.props.value}
                    style = {styles.inputStyle}
                    onChange = {this.props.onChange}
                    />                   

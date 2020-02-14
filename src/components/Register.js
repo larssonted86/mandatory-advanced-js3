@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Header from './Header'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
+
 
 
 export class Register extends Component {
@@ -8,6 +10,7 @@ export class Register extends Component {
     state = {
         email: '',
         password: '',
+        registered: false,
    }
 
    onChange = (e) => {
@@ -23,6 +26,9 @@ export class Register extends Component {
        const password = this.state.password       
        axios.post('http://3.120.96.16:3002/register', {email, password})
        .then(result => {
+           this.setState({
+               registered: true
+           })
            alert('Registration Sucsessfull! you can now login to your new account!')
        }).catch( res => {
            alert('something went wrong please try again!')
@@ -30,6 +36,8 @@ export class Register extends Component {
    }
 
     render() {
+        if(this.state.registered){return <Redirect to = '/' />}
+
         return (
             <div name = 'loginContainer' style = {styles.containerStyle}>
                 <Header headerStyles = {headerStyles} />
@@ -162,6 +170,9 @@ const formStyles = {
         textDecoration: 'none',
         fontSize: '1.5rem',
         color: '#4DC1F3',
+        backgroundColor: 'white',
+        border: 'none'
     },
+
 }
 export default Register
